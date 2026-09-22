@@ -16,23 +16,19 @@ read -p "Choose an option:" option
 case $option in
 1)
 read -p "Deposit section has been selected"
-break
 ;;
 
 2)
 read -p "Withdraw section has been selected"
-break
 ;;
 
 3)
-read -p "Your current balance is: $initial_balance"
-break
+echo "Your current balance is: $initial_balance"
 ;;
 
 4)
 echo "Goodbye!! Thank you for using PIITS Bank"
 exit 0
-break
 ;;
 
 *)
