@@ -1,5 +1,5 @@
 
-initial_balance='$1000'
+initial_balance=1000
 
 while true; do
 echo "============================="
@@ -14,13 +14,24 @@ read -p "Choose an option:" option
 
 
 case $option in
+
 1)
-read -p "Deposit section has been selected"
+read -p "Enter amount to deposit: " deposit
+initial_balance=$((initial_balance + deposit))
+echo "Deposited $deposit."
+echo "New balance: $initial_balance"
 ;;
 
 2)
-read -p "Withdraw section has been selected"
-;;
+read -p "Enter amount to withdraw: " withdraw
+if (( withdraw <= initial_balance )); then
+    initial_balance=$((initial_balance - withdraw))
+    echo "Withdrew $withdraw"
+    echo "New balance: $initial_balance"
+else
+    echo "Insufficent fund!"
+fi
+;;    
 
 3)
 echo "Your current balance is: $initial_balance"
